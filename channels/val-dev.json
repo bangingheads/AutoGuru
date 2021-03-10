@@ -1,0 +1,11 @@
+{
+    "intents": [
+        {
+            "tag": "notavailable",
+            "patterns": [
+                "CANNOT EXECUTE THIS API ENDPOINT IS NOT AVAILABLE IN YOUR POLICY"
+            ],
+            "response": "This means you can't get an API key to just play around with. You'll have to have a fully-fletched out documentation on what you're going to make, including projected userbase and rate-limits. After you have this, you'll have to register your application.\n\nYou cannot work on this API with your dev key"
+        }
+    ]
+}

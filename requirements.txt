@@ -1,0 +1,9 @@
+discord.py
+json
+nltk
+numpy
+pickle
+requests
+requests-cache
+tensorflow
+tflearn

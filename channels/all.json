@@ -1,0 +1,32 @@
+{
+    "intents": [
+        {
+            "tag": "ssl",
+            "patterns": [
+                "self signed certificate",
+                "ssl error",
+                "validation",
+                "verification"
+            ],
+            "response": "All local client APIs use a certificate signed by Riot Games. You will need to either turn off SSL verification or trust the Riot Games SSL Chain which can be found here: <https://static.developer.riotgames.com/docs/lol/riotgames.pem>"
+        },
+        {
+            "tag": "application",
+            "patterns": [
+                "how long days",
+                "application pending",
+                "approval process"
+            ],
+            "response": "Applications are answered on average 20 business days. You will have to wait for Riot to answer your application. Check back every few days on the developer portal to check on the status of your application.\n\nIf you would like to apply for an application: https://developer.riotgames.com/app-types"
+        },
+        {
+            "tag": "cors",
+            "patterns": [
+                "cors error header",
+                "Access Control Allow Origin",
+                "cross origin"
+            ],
+            "response": "Client-side calls are blocked because there is no way to make them without exposing your API key to users. You will need to setup a backend server that can make API calls while keeping your API key secure. If you want to quickly setup a proxy server, you can create some functions with AWS Lambda (<https://pastebin.com/LYsyfGgD>) or use Kernel (<https://github.com/meraki-analytics/kernel>).\n\nIf your project is only intended for personal usage, you can modify your browser settings to disable CORS (the mechanism which blocks you from making client-side calls). However, you will not be allowed to publish your site if you do this. More info about disabling CORS can be found here: <https://www.thepolyglotdeveloper.com/2014/08/bypass-cors-errors-testing-apis-locally/>"
+        }
+    ]
+}

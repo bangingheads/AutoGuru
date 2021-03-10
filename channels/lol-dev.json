@@ -1,0 +1,135 @@
+{
+    "intents": [
+        {
+            "tag": "championid",
+            "patterns": [
+                "champion id",
+                "champ key",
+                "champion name",
+                "from info information"
+            ],
+            "response": "Here is a JSON containing all champion data for patch {ddragon_version}: http://ddragon.leagueoflegends.com/cdn/{ddragon_version}/data/en_US/champion.json\nHere are a couple of Javascript helper functions to get up to date champion info (using latest patch, with translation options and examples): <https://gist.github.com/Querijn/5fe4b9f65a1236b98ead0bc39ab155ad>"
+        },
+        {
+            "tag": "403",
+            "patterns": [
+                "error 403",
+                "forbidden"
+            ],
+            "response": "**__403 (Forbidden)__**\nThis error indicates that the API request being made did not contain the necessary authentication credentials and therefore the client was denied access. If authentication credentials were already included then the Unauthorized response indicates that authorization has been refused for those credentials. In the case of the API, authorization credentials refer to your API key.\n\n**Common Reasons:**\nAn invalid or expired API key was provided with the API request\nA blacklisted API key was provided with the API request\nThe API request was for an incorrect or unsupported path\nThe API key does not have access to the requested endpoint\n\nhttps://developer.riotgames.com/docs/portal#web-apis_response-codes"
+        },
+        {
+            "tag": "401",
+            "patterns": [
+                "error 401",
+                "unauthorized"
+            ],
+            "response": "**__401 (Unauthorized)__**\nThis error indicates that the request being made did not contain the necessary authentication credentials (e.g., an API key) and therefore the client was denied access. The client should not continue to make similar requests without including an API key in the request.\n\n**Common Reasons:**\nAn API key has not been included in the request."
+        },
+        {
+            "tag": "503",
+            "patterns": [
+                "error 503",
+                "gateway timeout"
+            ],
+            "response": "**__503 (Gateway Timeout)__**\nThis error indicates a gateway timeout. This often happens while gathering matchlists/match data.\n\nYou will want some kind of error handling in your code to retry the request."
+        },
+        {
+            "tag": "400",
+            "patterns": [
+                "error 400",
+                "error decrypting id"
+            ],
+            "response": "**__400 (Error decrypting ID)__**\nThis error indicates the ID you have included is incorrect.\n\nCommon reasons:\nThe ID you provided is from a different application (Dev Key vs Production Key)\nProviding the wrong type of ID (Summoner ID vs Account ID)"
+        },
+        {
+            "tag": "esports",
+            "patterns": [
+                "esports",
+                "e-sports",
+                "lolesports",
+                "pro",
+                "professional",
+                "competitive",
+                "leaguepedia",
+                "worlds",
+                "ESPORTSTMNT",
+                "ESPORTSTMNT01",
+                "ESPORTSTMNT02",
+                "LCS",
+                "LEC",
+                "LCK",
+                "LPL"
+            ],
+            "response": "The official API does not have any endpoints for esports. There is an API used by lolesports.com, but it is not officially supported and may change at any time without warning. There is some unofficial documentation here, but it might not be accurate or up-to-date https://vickz84259.github.io/lolesports-api-docs/\nAnother solution is using community-driven solutions like Leaguepedia: <https://lol.gamepedia.com/Help:API_Documentation>\nAn example on how to use this to gather data can be found here: <https://www.hextechdocs.dev/lol/esportsapi/13.esports-match-data>.\nIf you need data past what these APIs can provide you can contact Bayes Esports: <https://www.bayesesports.com/>"
+        },
+        {
+            "tag": "roles",
+            "patterns": [
+                "incorrect role",
+                "wrong lane",
+                "roleml"
+            ],
+            "response": "The algorithm used to calculate the role and lane values often generates incorrect values, but there are some community projects that may yield more accurate results.\n<https://github.com/Canisback/roleML>\n<https://github.com/meraki-analytics/role-identification>"
+        },
+        {
+            "tag": "URL",
+            "patterns": [
+                "product url",
+                "mobile app",
+                "discord bot"
+            ],
+            "response": "You'll need to create a webpage to explain the app. The website should contain enough information so that Rioters can evaluate your project (to ensure it isn't breaking any rules) without actually downloading/using your app. If you're creating an app that doesn't have a url make sure you are still using a backend to proxy api calls."
+        },
+        {
+            "tag": "TPC",
+            "patterns": [
+                "third party code",
+                "account verification"
+            ],
+            "response": "Here is documentation on verifying an account using Third Party Code <https://www.hextechdocs.dev/lol/riotapi/1.usingthirdpartycodetoverifyaccountownership>\n\nIf you have Third Party Code implemented in your project and would be improved by RSO, you can send an app message to apply for RSO access."
+        },
+        {
+            "tag": "leaguedirector",
+            "patterns": [
+                "league director",
+                "league-director"
+            ],
+            "response": "Unfortunately Riot Games seems to have abandoned active development on LeagueDirector and they have closed the issues section of their github, meaning that there is no current place to discuss this application. This server is for the discussion surrounding the use of the API made by Riot Games, not the applications.\nIf still interested, you can find it here: https://github.com/RiotGames/leaguedirector\nIf you're looking for alternatives that work, I suggest going for: <https://github.com/SkinSpotlights/CreatorSuite-ReplayAPI/releases>\nThe League of Editing Discord server is where discussion of this app is appreciated more: https://discord.com/invite/7j5fdRp"
+        },
+        {
+            "tag": "timestamp",
+            "patterns": [
+                "timestamp",
+                "time stamp",
+                "begintime"
+            ],
+            "response": "Timestamps in the API are in Epoch/Unix timestamps. Majority of the endpoints are in milliseconds, if this date doesn't make sense use seconds instead, or it is relative to the beginning of the game in the case of something like timeline."
+        },
+        {
+            "tag": "perks",
+            "patterns": [
+                "primary perks",
+                "secondary runes",
+                "stat perks",
+                "perk0",
+                "perk1",
+                "statperk0",
+                "statperk1",
+                "statperk2"
+            ],
+            "response": "Rune list: <http://ddragon.leagueoflegends.com/cdn/{ddragon_version}/data/en_US/runesReforged.json>\nRune icons: the icon field for each rune is relative to <https://ddragon.leagueoflegends.com/cdn/img/> (e.g. <https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Domination/Electrocute/Electrocute.png>)\nUsing CDragon, there's this file that contains more in-depth information:\n<http://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/perks.json>"
+        },
+        {
+            "tag": "ids",
+            "patterns": [
+                "summonerid",
+                "accountid",
+                "puuid",
+                "change",
+                "ids"
+            ],
+            "response": "**Summoner ID:** Regionally unique ID of a summoner.\n**Account ID:** Regionally unique ID of an account.\n**PUUID:** Globally unique ID of an account.\n\nSummoner IDs and Account IDs change upon region change, PUUID does not. Otherwise they do not change on name change.\n\nIDs from different endpoints may be called differently i.e. id from Summoner-V4 may be referenced as encryptedSummonerId"
+        }
+    ]
+}
